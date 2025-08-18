@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/Green Floral Agriculture Organic Wheat Farm Logo Design.png" type="image/x-icon">
+    <title>Mauli_Krushi</title>
+</head>
+<body>
+    <div class="navbar">
+        <!-- Website Logo -->
+        <h2 class="logo">Mauli Agro</h2>
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
+        </div>
+    </div>
+
+    <div class="slider" id="slider">
+        <div class="slides">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="https://images.pexels.com/photos/51947/tuscany-grape-field-nature-51947.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Slide 1">
+            </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="images/images2.jpg" alt="Slide 2">
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="images/images3.webp" alt="Slide 3">
+            </div>
+        </div>
+        <div class="navigation">
+            <button id="prev">❮</button>
+            <button id="next">❯</button>
+        </div>
+    </div>
+
+    <div class="categories">
+        <h3 class="titlecat">Categories</h3>
+        <div class="listproduct">
+            <div class="product">
+                <img src="images/pesti.jfif" alt="Pesticides">
+                <p>Pesticides</p>
+            </div>
+            <div class="product">
+                <img src="images/insect.jfif" alt="Insecticides">
+                <p>Insecticides</p>
+            </div>
+            <div class="product">
+                <img src="images/seed.jfif" alt="Seeds">
+                <p>Seeds</p>
+            </div>
+            <div class="product">
+                <img src="images/herb.jfif" alt="Herbicides">
+                <p>Herbicides</p>
+            </div>
+            <div class="product">
+                <img src="images/gro.jfif" alt="Growth Promoters">
+                <p>Growth Promoters</p>
+            </div>
+            <div class="product">
+                <img src="images/nutr.jfif" alt="Nutricients">
+                <p>Nutricients</p>
+            </div>
+            <div class="product">
+                <img src="images/sticker.jfif" alt="Sticker">
+                <p>Sticker</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brands Section -->
+    <div class="brands">
+        <h3 class="titlebrand">Our Brands</h3>
+        <div class="brand-list">
+            <div class="brand">
+                <img src="images/dhanuka.png" alt="Nagaruj">
+                <p>Nagaruj</p>
+            </div>
+            <div class="brand">
+                <img src="images/fmc.png" alt="FMC">
+                <p>FMC</p>
+            </div>
+            <div class="brand">
+                <img src="images/upl.webp" alt="UPL">
+                <p>UPL</p>
+            </div>
+            <div class="brand">
+                <img src="images/syg.png" alt="Syngenta">
+                <p>Syngenta</p>
+            </div>
+            <div class="brand">
+                <img src="images/dhanuka.png" alt="Dhanuka">
+                <p>Dhanuka</p>
+            </div>
+            <div class="brand">
+                <img src="images/uz.jfif" alt="Dhanuka">
+                <p>Nuziveda seeds</p>
+            </div>
+            <div class="brand">
+                <img src="images/kav.png" alt="Dhanuka">
+                <p>Kaveri</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>@Mauli Agro.pvt.ltd</h2>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const slides = document.querySelector('.slides');
+        const slide = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        // Function to change slide
+        const changeSlide = (index) => {
+            currentIndex = index;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
+
+        // Auto-slide functionality
+        const autoSlide = () => {
+            currentIndex = (currentIndex + 1) % slide.length;
+            changeSlide(currentIndex);
+        };
+
+        // Manual navigation
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slide.length;
+            changeSlide(currentIndex);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slide.length) % slide.length;
+            changeSlide(currentIndex);
+        });
+
+        // Start auto-slide
+        let slideInterval = setInterval(autoSlide, 3000);
+
+        // Pause auto-slide on hover
+        const slider = document.querySelector('.slider');
+        slider.addEventListener('mouseover', () => clearInterval(slideInterval));
+        slider.addEventListener('mouseout', () => slideInterval = setInterval(autoSlide, 3000));
+    </script>
+</body>
+</html>
